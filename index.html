@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>iRacing Starter</title>
 </head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<h2>JavaScript in Body</h2>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  var win = window.open('https://members.iracing.com/membersite/member/Home.do', '_blank');  win.focus();
+  
+  setTimeout(
+    function() {try{var e_m64 = "VkVSU0lPTiUyMEJVSUxEJTNEMTAwNSUyMFJFQ09SREVSJTNEQ1IlMEFVUkwlMjBHT1RPJTNEaHR0cHMlM0ElMkYlMkZtZW1iZXJzLmlyYWNpbmcuY29tJTJGbWVtYmVyc2l0ZSUyRm1lbWJlciUyRkhvbWUuZG8lMEFUQUclMjBQT1MlM0QxJTIwVFlQRSUzRElOUFVUJTNBVEVYVCUyMEZPUk0lM0RBQ1RJT04lM0FodHRwcyUzQSUyRiUyRm1lbWJlcnMuaXJhY2luZy5jb20lMkZtZW1iZXJzaXRlJTJGbWVtYmVyJTJGSG9tZS5kbyUyMEFUVFIlM0ROQU1FJTNBdXNlcm5hbWVidXRub3Rmb3JyZWFsc2llcyUyMENPTlRFTlQlM0RtYXR0aGlhcy53dXJtJTQwZ21haWwuY29tJTBBU0VUJTIwIUVOQ1JZUFRJT04lMjBOTyUwQVRBRyUyMFBPUyUzRDElMjBUWVBFJTNESU5QVVQlM0FQQVNTV09SRCUyMEZPUk0lM0RBQ1RJT04lM0FodHRwcyUzQSUyRiUyRm1lbWJlcnMuaXJhY2luZy5jb20lMkZtZW1iZXJzaXRlJTJGbWVtYmVyJTJGSG9tZS5kbyUyMEFUVFIlM0ROQU1FJTNBcGFzc3dvcmRidXRhbHNvZm9ycGxheXBsYXklMjBDT05URU5UJTNEZmVuZ282UGklMEFUQUclMjBQT1MlM0QxJTIwVFlQRSUzREElMjBBVFRSJTNESUQlM0F0ZXN0X2J1dHRvbiUwQVRBRyUyMFBPUyUzRDElMjBUWVBFJTNEQSUyMEFUVFIlM0RJRCUzQXJhY2VfYnV0dG9uJTBBVEFHJTIwUE9TJTNEMSUyMFRZUEUlM0RESVYlMjBBVFRSJTNEVFhUJTNBVGVzdCUzQ1NQJTNFQ2FyJTNDU1AlM0VvbiUzQ1NQJTNFVHJhY2s=", n64 = "aXIuaWlt";if(!/^(?:chrome|https?|file)/.test(location)){alert('iMacros: Open webpage to run a macro.');return;}var macro = {};macro.source = decodeURIComponent(atob(e_m64));macro.name = decodeURIComponent(atob(n64));var evt = document.createEvent("CustomEvent");evt.initCustomEvent("iMacrosRunMacro", true, true, macro);window.dispatchEvent(evt);}catch(e){alert('iMacros Bookmarklet error: '+e.toString());}},
+    10000
+  );
+}
+
+</script>
 
 </body>
-</html>
+</html> 
