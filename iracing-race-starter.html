@@ -7,6 +7,14 @@
 <!-- e_m64: b64(url_encode(imacroSkriptInhalt)), n64: b64(imacroSkripName) -->
 function iRacingStartDelayed() {
 // var win = window.open('https://members.iracing.com/membersite/member/Home.do', '_blank');  win.focus();
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+  }
+  document.getElementById("progressBar").value = 10 - timeleft;
+  timeleft -= 1;
+}, 1000);
   
   setTimeout(
     function() {try{var e_m64 = "VkVSU0lPTiUyMEJVSUxEJTNEMTAxMSUyMFJFQ09SREVSJTNEQ1IlMEFTRVQlMjAlMjFUSU1FT1VUX1NURVAlMjA5MCUwQVNFVCUyMCUyMUVYVFJBQ1RfVEVTVF9QT1BVUCUyME5PJTBBJTBBVVJMJTIwR09UTyUzRGh0dHBzJTNBJTJGJTJGbWVtYmVycy5pcmFjaW5nLmNvbSUyRm1lbWJlcnNpdGUlMkZtZW1iZXIlMkZIb21lLmRvJTBBJTI3JTIwc2VhcmNoJTIwZm9yJTIwc29tZXRoaW5nJTIwbGlrZSUyMDE5JTNBMTUlMjBNR1QlMjAlNUIyMSUzQTE1JTIwcG0lNUQlMjAlMjgxNzIlMjklMEFTRUFSQ0glMjBTT1VSQ0UlM0RSRUdFWFAlM0ElMjIlMjglNUIwLTklNUQlN0IyJTdEJTVDJTNBJTVCMC05JTVEJTdCMiU3RCUyOS4lMkIlMjhHTVQlMjkuJTJCJTI4JTVDJTVCJTVCMC05JTVEJTdCMiU3RCU1QyUzQSU1QjAtOSU1RCU3QjIlN0QlMjklNUNzJTI4JTVCYXAlNURtJTVDJTVEJTI5JTIyJTIwRVhUUkFDVCUzRCUyMiUyNDElM0NTUCUzRSUyNDIlM0NTUCUzRSUyNDMlM0NTUCUzRSUyNDQlMjIlMEElMjcxMiUzQTE1JTNDU1AlM0VHTVQlM0NTUCUzRSU1QjAyJTNBMTUlM0NTUCUzRXBtJTVEJTNDU1AlM0UlMjgzMyUyOSUwQSUyN0Rpc3BsYXklMjBleHRyYWN0ZWQlMjBkYXRhJTBBJTI3UFJPTVBUJTIwJTdCJTdCJTIxRVhUUkFDVCU3RCU3RCUwQSUwQSUyN1RBRyUyMFBPUyUzRDElMjBUWVBFJTNEQSUyMEFUVFIlM0RUWFQlM0ExMiUzQTE1JTNDU1AlM0VHTVQlM0NTUCUzRSU1QjAyJTNBMTUlM0NTUCUzRXBtJTVEJTNDU1AlM0UlMjgzMyUyOSUwQVRBRyUyMFBPUyUzRDElMjBUWVBFJTNEQSUyMEFUVFIlM0RUWFQlM0ElMkElN0IlN0IlMjFFWFRSQUNUJTdEJTdEJTJBJTBBVEFHJTIwUE9TJTNEMSUyMFRZUEUlM0RBJTIwQVRUUiUzRFRYVCUzQUpvaW4lM0NTUCUzRVByYWN0aWNl", n64 = "aVJhY2luZ1JlZ2lzdGVyUmFjZUFuZEpvaW5QcmFjdGljZS5paW0=";if(!/^(?:chrome|https?|file)/.test(location)){alert('iMacros: Open webpage to run a macro.');return;}var macro = {};macro.source = decodeURIComponent(atob(e_m64));macro.name = decodeURIComponent(atob(n64));var evt = document.createEvent("CustomEvent");evt.initCustomEvent("iMacrosRunMacro", true, true, macro);window.dispatchEvent(evt);}catch(e){alert('iMacros Bookmarklet error: '+e.toString());}},
@@ -20,6 +28,8 @@ function iRacingStartDelayed() {
 
 <h2>iRacing start test 3</h2>
 
+<progress value="0" max="10" id="progressBar"></progress>
+  
 <button type="button" onclick="iRacingStartDelayed()">Execute JavaScript manually</button>
 
 
