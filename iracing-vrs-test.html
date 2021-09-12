@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iRacing Starter</title>
+<script>
+  
+<!-- e_m64: b64(url_encode(imacroSkriptInhalt)), n64: b64(imacroSkripName) -->
+function iRacingStartDelayed() {
+
+  var timeleft = 10;
+  var downloadTimer = setInterval(function() {
+    if(timeleft <= 0) {
+      clearInterval(downloadTimer);
+    }
+    document.getElementById("progressBar").value = 10 - timeleft;
+    timeleft -= 1;
+  }, 500);
+  
+  setTimeout(
+    function() {
+      try {
+        var iMacroScript = '' +
+            '\n' +
+'VERSION BUILD=1011 RECORDER=CR\n'  +
+'SET !TIMEOUT_STEP 90\n'  +
+'URL GOTO=https://virtualracingschool.appspot.com/#/DataPacks/223470003\n'  +
+'TAG POS=1 TYPE=SPAN ATTR=TXT:No<sp>data<sp>published*\n'  +
+'TAG POS=R-1 TYPE=SPAN ATTR=CLASS:icon-game-controller\n'  +
+'WAIT SECONDS=1\n'  +
+'TAG POS=1 TYPE=A ATTR=TXT:Test\n' +
+            '\n' +
+            '';
+        if(!/^(?:chrome|https?|file)/.test(location)) {
+          alert('iMacros: Open webpage to run a macro.');
+          return;
+        }
+        var macro = {};
+        macro.source = iMacroScript;
+        macro.name = 'iRacingVrsTestSkipBarberR.iim';
+        var evt = document.createEvent("CustomEvent");
+        evt.initCustomEvent("iMacrosRunMacro", true, true, macro);
+        window.dispatchEvent(evt);
+      }
+      catch(e) {
+        alert('iMacros Bookmarklet error: '+e.toString());
+      }
+    },
+    5000
+  );
+}
+</script>
+
+</head>
+<body onload="iRacingStartDelayed()">
+
+<h2>iRacing: register to race and join practice session</h2>
+
+<progress value="0" max="10" id="progressBar"></progress>
+<p>  
+<button type="button" onclick="iRacingStartDelayed()">Execute JavaScript manually</button>
+
+
+</body>
+</html> 
