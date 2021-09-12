@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iRacing Starter</title>
+<script>
+  
+<!-- e_m64: b64(url_encode(imacroSkriptInhalt)), n64: b64(imacroSkripName) -->
+function iRacingStartDelayed() {
+// var win = window.open('https://members.iracing.com/membersite/member/Home.do', '_blank');  win.focus();
+  
+  setTimeout(
+    function() {try{var e_m64 = "VkVSU0lPTiUyMEJVSUxEJTNEMTAxMSUyMFJFQ09SREVSJTNEQ1IlMEFTRVQlMjAlMjFUSU1FT1VUX1NURVAlMjA5MCUwQVVSTCUyMEdPVE8lM0RodHRwcyUzQSUyRiUyRm1lbWJlcnMuaXJhY2luZy5jb20lMkZtZW1iZXJzaXRlJTJGbWVtYmVyJTJGSG9tZS5kbyUwQSUyNyUyMHNlYXJjaCUyMGZvciUyMHNvbWV0aGluZyUyMGxpa2UlMjAxOSUzQTE1JTIwTUdUJTIwJTVCMjElM0ExNSUyMHBtJTVEJTIwJTI4MTcyJTI5JTBBU0VBUkNIJTIwU09VUkNFJTNEUkVHRVhQJTNBJTIyJTI4JTVCMC05JTVEJTdCMiU3RCU1QyUzQSU1QjAtOSU1RCU3QjIlN0QlMjkuJTJCJTI4R01UJTI5LiUyQiUyOCU1QyU1QiU1QjAtOSU1RCU3QjIlN0QlNUMlM0ElNUIwLTklNUQlN0IyJTdEJTI5JTVDcyUyOCU1QmFwJTVEbSU1QyU1RCUyOSUyMiUyMEVYVFJBQ1QlM0QlMjIlMjQxJTNDU1AlM0UlMjQyJTNDU1AlM0UlMjQzJTNDU1AlM0UlMjQ0JTIyJTBBJTI3MTIlM0ExNSUzQ1NQJTNFR01UJTNDU1AlM0UlNUIwMiUzQTE1JTNDU1AlM0VwbSU1RCUzQ1NQJTNFJTI4MzMlMjklMEElMjdEaXNwbGF5JTIwZXh0cmFjdGVkJTIwZGF0YSUwQSUyN1BST01QVCUyMCU3QiU3QiUyMUVYVFJBQ1QlN0QlN0QlMEElMEElMjdUQUclMjBQT1MlM0QxJTIwVFlQRSUzREElMjBBVFRSJTNEVFhUJTNBMTIlM0ExNSUzQ1NQJTNFR01UJTNDU1AlM0UlNUIwMiUzQTE1JTNDU1AlM0VwbSU1RCUzQ1NQJTNFJTI4MzMlMjklMEFUQUclMjBQT1MlM0QxJTIwVFlQRSUzREElMjBBVFRSJTNEVFhUJTNBJTJBJTdCJTdCJTIxRVhUUkFDVCU3RCU3RCUyQSUwQVRBRyUyMFBPUyUzRDElMjBUWVBFJTNEQSUyMEFUVFIlM0RUWFQlM0FKb2luJTNDU1AlM0VQcmFjdGljZQ==", n64 = "aVJhY2luZ1JlZ2lzdGVyUmFjZUFuZEpvaW5QcmFjdGljZS5paW0=";if(!/^(?:chrome|https?|file)/.test(location)){alert('iMacros: Open webpage to run a macro.');return;}var macro = {};macro.source = decodeURIComponent(atob(e_m64));macro.name = decodeURIComponent(atob(n64));var evt = document.createEvent("CustomEvent");evt.initCustomEvent("iMacrosRunMacro", true, true, macro);window.dispatchEvent(evt);}catch(e){alert('iMacros Bookmarklet error: '+e.toString());}},
+    5000
+  );
+}
+</script>
 
+</head>
+<body onload="iRacingStartDelayed()">
+
+<h2>iRacing start test 3</h2>
+
+<button type="button" onclick="iRacingStartDelayed()">Execute JavaScript manually</button>
+
+
+</body>
+</html> 
