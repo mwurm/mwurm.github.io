@@ -6,18 +6,45 @@
   
 <!-- e_m64: b64(url_encode(imacroSkriptInhalt)), n64: b64(imacroSkripName) -->
 function iRacingStartDelayed() {
-// var win = window.open('https://members.iracing.com/membersite/member/Home.do', '_blank');  win.focus();
-var timeleft = 10;
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer);
-  }
-  document.getElementById("progressBar").value = 10 - timeleft;
-  timeleft -= 1;
-}, 1000);
+
+  var timeleft = 5;
+  var downloadTimer = setInterval(function() {
+    if(timeleft <= 0) {
+      clearInterval(downloadTimer);
+    }
+    document.getElementById("progressBar").value = 5 - timeleft;
+    timeleft -= 1;
+  }, 5000);
   
   setTimeout(
-    function() {try{var e_m64 = "VkVSU0lPTiUyMEJVSUxEJTNEMTAxMSUyMFJFQ09SREVSJTNEQ1IlMEFTRVQlMjAlMjFUSU1FT1VUX1NURVAlMjA5MCUwQVNFVCUyMCUyMUVYVFJBQ1RfVEVTVF9QT1BVUCUyME5PJTBBJTBBVVJMJTIwR09UTyUzRGh0dHBzJTNBJTJGJTJGbWVtYmVycy5pcmFjaW5nLmNvbSUyRm1lbWJlcnNpdGUlMkZtZW1iZXIlMkZIb21lLmRvJTBBJTI3JTIwc2VhcmNoJTIwZm9yJTIwc29tZXRoaW5nJTIwbGlrZSUyMDE5JTNBMTUlMjBNR1QlMjAlNUIyMSUzQTE1JTIwcG0lNUQlMjAlMjgxNzIlMjklMEFTRUFSQ0glMjBTT1VSQ0UlM0RSRUdFWFAlM0ElMjIlMjglNUIwLTklNUQlN0IyJTdEJTVDJTNBJTVCMC05JTVEJTdCMiU3RCUyOS4lMkIlMjhHTVQlMjkuJTJCJTI4JTVDJTVCJTVCMC05JTVEJTdCMiU3RCU1QyUzQSU1QjAtOSU1RCU3QjIlN0QlMjklNUNzJTI4JTVCYXAlNURtJTVDJTVEJTI5JTIyJTIwRVhUUkFDVCUzRCUyMiUyNDElM0NTUCUzRSUyNDIlM0NTUCUzRSUyNDMlM0NTUCUzRSUyNDQlMjIlMEElMjcxMiUzQTE1JTNDU1AlM0VHTVQlM0NTUCUzRSU1QjAyJTNBMTUlM0NTUCUzRXBtJTVEJTNDU1AlM0UlMjgzMyUyOSUwQSUyN0Rpc3BsYXklMjBleHRyYWN0ZWQlMjBkYXRhJTBBJTI3UFJPTVBUJTIwJTdCJTdCJTIxRVhUUkFDVCU3RCU3RCUwQSUwQSUyN1RBRyUyMFBPUyUzRDElMjBUWVBFJTNEQSUyMEFUVFIlM0RUWFQlM0ExMiUzQTE1JTNDU1AlM0VHTVQlM0NTUCUzRSU1QjAyJTNBMTUlM0NTUCUzRXBtJTVEJTNDU1AlM0UlMjgzMyUyOSUwQVRBRyUyMFBPUyUzRDElMjBUWVBFJTNEQSUyMEFUVFIlM0RUWFQlM0ElMkElN0IlN0IlMjFFWFRSQUNUJTdEJTdEJTJBJTBBVEFHJTIwUE9TJTNEMSUyMFRZUEUlM0RBJTIwQVRUUiUzRFRYVCUzQUpvaW4lM0NTUCUzRVByYWN0aWNl", n64 = "aVJhY2luZ1JlZ2lzdGVyUmFjZUFuZEpvaW5QcmFjdGljZS5paW0=";if(!/^(?:chrome|https?|file)/.test(location)){alert('iMacros: Open webpage to run a macro.');return;}var macro = {};macro.source = decodeURIComponent(atob(e_m64));macro.name = decodeURIComponent(atob(n64));var evt = document.createEvent("CustomEvent");evt.initCustomEvent("iMacrosRunMacro", true, true, macro);window.dispatchEvent(evt);}catch(e){alert('iMacros Bookmarklet error: '+e.toString());}},
+    function() {
+      try {
+        var iMacroScript = '' +
+            '\n' +
+            'VERSION BUILD=1011 RECORDER=CR\n' +
+            'SET !TIMEOUT_STEP 90\n' +
+            'SET !EXTRACT_TEST_POPUP NO\n' +
+            'URL GOTO=https://members.iracing.com/membersite/member/Home.do\n' +
+            'SEARCH SOURCE=REGEXP:"([0-9]{2}\:[0-9]{2}).+(GMT).+(\[[0-9]{2}\:[0-9]{2})\s([ap]m\])" EXTRACT="$1<SP>$2<SP>$3<SP>$4"\n' +
+            'TAG POS=1 TYPE=A ATTR=TXT:*{{!EXTRACT}}*\n' +
+            'TAG POS=1 TYPE=A ATTR=TXT:Join<SP>Practice\n' +
+            '\n' +
+            '';
+        if(!/^(?:chrome|https?|file)/.test(location)) {
+          alert('iMacros: Open webpage to run a macro.');
+          return;
+        }
+        var macro = {};
+        macro.source = iMacroScript;
+        macro.name = 'iRacingRegisterRaceAndJoinPractice.iim';
+        var evt = document.createEvent("CustomEvent");
+        evt.initCustomEvent("iMacrosRunMacro", true, true, macro);
+        window.dispatchEvent(evt);
+      }
+      catch(e) {
+        alert('iMacros Bookmarklet error: '+e.toString());
+      }
+    },
     5000
   );
 }
@@ -28,7 +55,7 @@ var downloadTimer = setInterval(function(){
 
 <h2>iRacing start test 3</h2>
 
-<progress value="0" max="10" id="progressBar"></progress>
+<progress value="0" max="5" id="progressBar"></progress>
   
 <button type="button" onclick="iRacingStartDelayed()">Execute JavaScript manually</button>
 
