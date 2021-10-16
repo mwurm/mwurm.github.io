@@ -19,6 +19,7 @@ function iRacingStartDelayed() {
   setTimeout(
     function() {
       try {
+        window.alert("b 2 ");
         var iracing_week = new URL(window.location.href).searchParams.get("iracing_week");
         var element_position = (iracing_week != null) ? iracing_week * 2 : 2;
         // iimSet("ELEM_POSITION", element_position);
@@ -50,7 +51,7 @@ function iRacingStartDelayed() {
         alert('iMacros Bookmarklet error: '+e.toString());
       }
     },
-    5000
+    100
   );
 }
 </script>
