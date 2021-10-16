@@ -19,13 +19,16 @@ function iRacingStartDelayed() {
   setTimeout(
     function() {
       try {
+        var iracing_week = new URL(window.location.href).searchParams.get("iracing_week");
+        var element_position = iracing_week * 2;
         var iMacroScript = '' +
             '\n' +
+'iimSet("ELEM_POSITION", element_position);\n'
 'VERSION BUILD=1011 RECORDER=CR\n'  +
 'SET !TIMEOUT_STEP 90\n'  +
 'URL GOTO=https://virtualracingschool.appspot.com/#/DataPacks/223470003\n'  +
-'TAG POS=1 TYPE=SPAN ATTR=TXT:No<sp>data<sp>published*\n'  +
-'TAG POS=R-1 TYPE=SPAN ATTR=CLASS:icon-game-controller\n'  +
+'TAG POS=1 TYPE=A ATTR=TXT:Show<SP>previous<SP>weeks\n'  +
+'TAG POS=ELEM_POSITION TYPE=SPAN ATTR=CLASS:icon-game-controller\n'  +
 'WAIT SECONDS=1\n'  +
 'TAG POS=1 TYPE=A ATTR=TXT:Test\n' +
             '\n' +
