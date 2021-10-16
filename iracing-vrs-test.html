@@ -6,15 +6,7 @@
   
 <!-- e_m64: b64(url_encode(imacroSkriptInhalt)), n64: b64(imacroSkripName) -->
 function iRacingStartDelayed() {
-  var realwindow=window, 
-	window=unsafeWindow, 
-	document=unsafeWindow.document,
-	iimPlay=iimPlay,
-	iimGetLastExtract=iimGetLastExtract,
-	iimSet=iimSet;
 
-  window.alert("b 4");
-	
   var timeleft = 10;
   var downloadTimer = setInterval(function() {
     if(timeleft <= 0) {
@@ -29,14 +21,13 @@ function iRacingStartDelayed() {
       try {
         var iracing_week = new URL(window.location.href).searchParams.get("iracing_week");
         var element_position = (iracing_week != null) ? iracing_week * 2 : 2;
-        // iimSet("ELEM_POSITION", element_position);
         var iMacroScript = '' +
             '\n' +
 'VERSION BUILD=1011 RECORDER=CR\n'  +
 'SET !TIMEOUT_STEP 90\n'  +
 'URL GOTO=https://virtualracingschool.appspot.com/#/DataPacks/223470003\n'  +
 'TAG POS=1 TYPE=A ATTR=TXT:Show<SP>previous<SP>weeks\n'  +
-'TAG POS=2 TYPE=SPAN ATTR=CLASS:icon-game-controller\n'  +
+'TAG POS=' + element_position + ' TYPE=SPAN ATTR=CLASS:icon-game-controller\n'  +
 'WAIT SECONDS=1\n'  +
 'TAG POS=1 TYPE=A ATTR=TXT:Test\n' +
             '\n' +
@@ -45,20 +36,19 @@ function iRacingStartDelayed() {
           alert('iMacros: Open webpage to run a macro.');
           return;
         }
-        iimPlay(iMacroScript)
         
-        //var macro = {};
-        //macro.source = iMacroScript;
-        //macro.name = 'vrstest2.iim';
-        //var evt = document.createEvent("CustomEvent");
-        //evt.initCustomEvent("iMacrosRunMacro", true, true, macro);
-        //window.dispatchEvent(evt);
+        var macro = {};
+        macro.source = iMacroScript;
+        macro.name = 'imacro.iim';
+        var evt = document.createEvent("CustomEvent");
+        evt.initCustomEvent("iMacrosRunMacro", true, true, macro);
+        window.dispatchEvent(evt);
       }
       catch(e) {
         alert('iMacros Bookmarklet error: '+e.toString());
       }
     },
-    100
+    5000
   );
 }
 </script>
