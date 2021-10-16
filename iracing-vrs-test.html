@@ -6,6 +6,12 @@
   
 <!-- e_m64: b64(url_encode(imacroSkriptInhalt)), n64: b64(imacroSkripName) -->
 function iRacingStartDelayed() {
+  var realwindow=window, 
+	window=unsafeWindow, 
+	document=unsafeWindow.document,
+	iimPlay=iimPlay,
+	iimGetLastExtract=iimGetLastExtract,
+	iimSet=iimSet;
 
   var timeleft = 10;
   var downloadTimer = setInterval(function() {
