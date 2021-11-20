@@ -19,12 +19,13 @@ function iRacingStartDelayed() {
   setTimeout(
     function() {
       try {
+        var series = new URL(window.location.href).searchParams.get("series");
         var iMacroScript = '' +
             '\n' +
 'VERSION BUILD=1011 RECORDER=CR\n' +
 'SET !TIMEOUT_STEP 90\n' +
 'URL GOTO=https://members.iracing.com/membersite/member/spectator.jsp?type=road\n' +
-'TAG POS=1 TYPE=DIV ATTR=TXT:Skip<SP>Barber<SP>Race<SP>Series\n' +
+'TAG POS=1 TYPE=DIV ATTR=TXT:' + series + '\n' +
 'TAG POS=R9 TYPE=DIV ATTR=* CONTENT=EVENT:MOUSEOVER\n' +
 'WAIT SECONDS=1\n' +
 'TAG POS=R1 TYPE=DIV ATTR=TXT:Watch<SP>Now\n' +
